@@ -1,3 +1,4 @@
+import os
 import time
 
 import pytest
@@ -5,7 +6,7 @@ import requests
 
 from logic.locators.projects_page import ProjectsPageLocators
 from logic.pages.projects_page import ProjectsPage
-from logic.pages.settings import ProjectsPageData
+from utilities.settings import ProjectsPageData
 
 
 @pytest.mark.smoke
@@ -14,17 +15,15 @@ def test_go_to_projects_page(browser, execute_login):
     page = ProjectsPage(browser, url=execute_login)
     page.go_to_projects_page()
     time.sleep(3)
-    response = requests.get(ProjectsPageData.URL_PROJECTS_PAGE)
+    response = requests.get(os.getenv('URL_PROJECTS_PAGE'))
     assert response.status_code == 200
 
 
-# @pytest.mark.parametrize('project_name', ProjectsPageData.PROJECT_NAME)
-# @pytest.mark.parametrize('short_project_name', ProjectsPageData.SHORT_PROJECT_NAME)
 def test_create_project(browser, execute_login):
     """Positive: Create a new project with all required data"""
     project_name = ProjectsPageData.PROJECT_NAME
     short_project_name = ProjectsPageData.SHORT_PROJECT_NAME
-    page = ProjectsPage(browser, ProjectsPageData.URL_PROJECTS_PAGE)
+    page = ProjectsPage(browser, os.getenv('URL_PROJECTS_PAGE'))
     page.open()
     count = page.projects_count()
     page.click_create_project_btn()
@@ -47,7 +46,7 @@ def test_create_project_with_all_data(browser, execute_login):
     hours = ProjectsPageData.ESTIMATED_HOURS
     business_unit = ProjectsPageData.BUSINESS_UNIT
     note = ProjectsPageData.NOTE
-    page = ProjectsPage(browser, ProjectsPageData.URL_PROJECTS_PAGE)
+    page = ProjectsPage(browser, os.getenv('URL_PROJECTS_PAGE'))
     page.open()
     count = page.projects_count()
     page.click_create_project_btn()
@@ -90,7 +89,3 @@ def test_create_client_with_all_data(browser, execute_login):
     assert element.is_displayed() is True
     time.sleep(3)
     page.client_added(client_count)
-
-
-
-

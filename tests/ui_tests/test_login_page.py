@@ -1,17 +1,18 @@
-import time
+import os
 
 import pytest
+import requests
 
 from logic.pages.login_page import LoginPage
-from logic.pages.settings import LoginPageData
 
 
 @pytest.mark.smoke
 def test_login(browser):
     """ Execute login """
-    page = LoginPage(browser, LoginPageData.URL_LOGIN_PAGE)
+    page = LoginPage(browser, os.getenv('URL_LOGIN_PAGE'))
     page.open()
     page.enter_email()
     page.enter_password()
     page.click_login_btn()
-    time.sleep(3)
+    response = requests.get(os.getenv('URL_PLANNING_PAGE'))
+    assert response.status_code == 200

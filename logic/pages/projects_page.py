@@ -1,9 +1,7 @@
-import requests
 import time
 
 from .base_page import BasePage
 from logic.locators.projects_page import ProjectsPageLocators
-from .settings import ProjectsPageData
 
 
 class ProjectsPage(BasePage):

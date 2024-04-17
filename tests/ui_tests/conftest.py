@@ -1,10 +1,10 @@
-import time
+import os
 
+import time
 import pytest
 from urllib3.util import url
 
 from logic.pages.login_page import LoginPage
-from logic.pages.settings import LoginPageData
 from utilities.webdriver import WebDriverClass
 from utilities.enums import Driver
 
@@ -20,10 +20,10 @@ def browser():
 
 @pytest.fixture()
 def execute_login(browser):
-    page = LoginPage(browser, LoginPageData.URL_LOGIN_PAGE)
+    page = LoginPage(browser, os.getenv('URL_LOGIN_PAGE'))
     page.open()
     page.enter_email()
     page.enter_password()
     page.click_login_btn()
-    time.sleep(3)
+    time.sleep(1)
     return url
