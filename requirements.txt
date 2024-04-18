@@ -22,3 +22,5 @@ urllib3==2.2.1
 wsproto==1.2.0
 webdriver-manager==4.0.1
 
+
+Faker~=24.9.0
