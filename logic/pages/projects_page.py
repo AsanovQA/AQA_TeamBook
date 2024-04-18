@@ -1,6 +1,6 @@
 import time
 
-from .base_page import BasePage
+from .base_page import BasePage, Wait
 from logic.locators.projects_page import ProjectsPageLocators
 
 
@@ -60,6 +60,18 @@ class ProjectsPage(BasePage):
     def click_create_btn(self):
         self.browser.find_element(*ProjectsPageLocators.CREATE_BTN).click()
 
+    def click_advanced_tab(self):
+        self.browser.find_element(*ProjectsPageLocators.ADVANCED_TAB).click()
+
+    def click_add_task_btn(self):
+        self.browser.find_element(*ProjectsPageLocators.ADD_TASKS_BTN).click()
+
+    def fill_task_name(self, task_name):
+        self.browser.find_element(*ProjectsPageLocators.TASK_NAME).send_keys(task_name)
+
+    def click_save_task_btn(self):
+        self.browser.find_element(*ProjectsPageLocators.SAVE_TASK_BTN).click()
+
     def check_success_message(self):
         success_message = self.browser.find_element(*ProjectsPageLocators.SUCCESS_MESSAGE)
         assert success_message
@@ -76,7 +88,57 @@ class ProjectsPage(BasePage):
         projects = len(self.browser.find_elements(*ProjectsPageLocators.PROJECTS_LIST))
         assert (projects - count) == 0, "but was{0}".format((projects - count).__str__())
 
+    def fill_search_project_box(self, project_name):
+        # self.browser.find_element(*ProjectsPageLocators.SEARCH_FIELD).click()
+        self.browser.find_element(*ProjectsPageLocators.SEARCH_FIELD).send_keys(project_name)
+        time.sleep(2)
+
+    def select_project(self):
+        self.browser.find_element(*ProjectsPageLocators.PROJECT_RECORD_SELECT).click()
+
+    def select_all_projects(self):
+        self.browser.find_element(*ProjectsPageLocators.SELECT_ALL_PROJECTS).click()
+
+    def click_archive_btn(self):
+        self.browser.find_element(*ProjectsPageLocators.ARCHIVE_PROJECT_BTN).click()
+        time.sleep(2)
+
+    def check_archive_project_modal(self):
+        archive_project_modal = self.browser.find_element(*ProjectsPageLocators.ARCHIVE_PROJECT_MODAL)
+        assert archive_project_modal, 'Archive project modal is not displayed'
+
+    def click_archive_project_btn_modal(self):
+        self.browser.find_element(*ProjectsPageLocators.ARCHIVE_PROJECT_BTN_MODAL).click()
+        time.sleep(1)
+
+    def project_archived(self, count):
+        projects = len(self.browser.find_elements(*ProjectsPageLocators.PROJECTS_LIST))
+        assert (count - projects) == 1, 'Project is not archived'
+
+    def open_archived_projects(self):
+        self.browser.find_element(*ProjectsPageLocators.FILTER_PROJECTS_BY_ACTIVITY).click()
+        self.browser.find_element(*ProjectsPageLocators.SELECT_ARCHIVED_PROJECTS).click()
+
+    def click_archive_project_checkbox(self):
+        self.browser.find_element(*ProjectsPageLocators.SELECT_ARCHIVED_PROJECT_CHECKBOX).click()
+
+    def click_delete_archived_project_btn(self):
+        self.browser.find_element(*ProjectsPageLocators.DELETE_ARCHIVED_PROJECT_BTN).click()
+
+    def click_delete_project_btn(self):
+        self.browser.find_element(*ProjectsPageLocators.DELETE_PROJECT_BTN).click()
+
+    def archived_projects_count(self):
+        archived_projects = self.browser.find_elements(*ProjectsPageLocators.ARCHIVED_LIST)
+        return len(archived_projects)
+
+    def project_deleted(self, archived_count):
+        projects = len(self.browser.find_elements(*ProjectsPageLocators.ARCHIVED_LIST))
+        assert (archived_count - projects) == 1, 'Project is not deleted'
+
+
     """Client Functions"""
+
     def click_manage_clients_btn(self):
         self.browser.find_element(*ProjectsPageLocators.MANAGE_CLIENTS_BTN).click()
 

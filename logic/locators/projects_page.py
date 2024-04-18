@@ -22,20 +22,28 @@ class ProjectsPageLocators:
     PROJECT_COLOR = (By.CSS_SELECTOR, '.project-form__project-color')
     SELECT_PROJECT_COLOR = (By.CSS_SELECTOR, 'span:nth-child(14) > div div')
     PROJECT_NOTES = (By.XPATH, '//div[6]/div/div/div/div[2]/div/div[2]/div/div/div/div')
+    ADVANCED_TAB = (By.XPATH, '//div[3]/div/div/div/div[2]/p')
+    ADD_TASKS_BTN = (By.XPATH, '//div[3]/div/div/div[2]/div/img')
+    TASK_NAME = (By.XPATH, '//div[2]/div[2]/div/div/div/div/input')
+    SAVE_TASK_BTN = (By.XPATH, '//div[2]/div[2]/div/div[2]/div/img')
+    DELETE_TASK_BTN = (By.XPATH, '//div[2]/div[2]/div/div/div[2]/img')
     CREATE_BTN = (By.XPATH, '//div[2]/button/p')
     SUCCESS_MESSAGE = (By.XPATH, '//body/div/div[2]/div[2]/p')
     SEARCH_FIELD = (By.ID, 'filterProjects')
-    PROJECT_NAME_SELECT = (By.XPATH, '//*[@id="root"]/div[2]/div/div[4]/div[2]/div/div/div[2]/p')
-    ARCHIVE_PROJECT_ICON = (By.ID, 'deleteProjectButton')
-    ARCHIVE_PROJECT_BTN = (By.XPATH, '//button[@class="MuiButton-root MuiButton-text MuiButton-textPrimary '
-                                     'MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root sc-kDDrLX '
-                                     'kjrQkc css-1ujsas3"]')
-    FILTER_PROJECTS_BY_ACTIVITY = (By.XPATH, '//*[@id="root"]/div[2]/div/div[2]/div[1]/div[2]/div/div/div[1]')
-    SELECT_ARCHIVE_PROJECTS = (By.XPATH, '//div[text()="Archived"]')
-    SELECT_ARCHIVE_PROJECT_CHECKBOX = (By.ID, 'selectProject')
-    DELETE_ARCHIVE_PROJECT_ICON = (By.XPATH, '//*[@id="root"]/div[2]/div/div[3]/img[1]')
-    DELETE_PROJECT_BTN = (By.XPATH, '//p[text()="Delete"]')
+    SELECT_ALL_PROJECTS = (By.XPATH, '//div[4]/div/div/img')
+    PROJECT_RECORD_SELECT = (By.XPATH, "//div[@id='root']/div[2]/div/div[4]/div[2]/div/div/div/img")
+    ARCHIVE_PROJECT_BTN = (By.ID, 'deleteProjectPageButton')
+    ARCHIVE_PROJECT_MODAL = (By.XPATH, "//img[@id=deleteProjectPageButton']")
+    ARCHIVE_PROJECT_BTN_MODAL = (By.XPATH, '//div[2]/button/p')
+    FILTER_PROJECTS_BY_ACTIVITY = (By.XPATH, '//div[2]/div/div[2]/div/div[2]/div/div/div')
+    SELECT_ARCHIVED_PROJECTS = (By.XPATH, '//div[text()="Archived"]')
+    SELECT_ARCHIVED_PROJECT_CHECKBOX = (By.XPATH, "//div[@id='root']/div[2]/div/div[4]/div[2]/div/div/div/img")
+    DELETE_ARCHIVED_PROJECT_BTN = (By.ID, 'deleteProjectPageButton')
+    DELETE_PROJECT_BTN = (By.XPATH, '//div[2]/button/p')
     PROJECTS_LIST = (By.CLASS_NAME, 'projects-page__project-element')
+    ARCHIVED_LIST = (By.CSS_SELECTOR, '#root > div.App > div > div.projects-page__projects-content > '
+                                      'div.projects-page__'
+                                      'project-list > div:nth-child(1) > div')
 
     MANAGE_CLIENTS_BTN = (By.XPATH, '//*[@id="root"]/div[2]/div/div[2]/div[2]/div[1]/div')
     NEW_CLIENT_BTN = (By.XPATH, '//*[@id="createClient"]')
@@ -49,3 +57,4 @@ class ProjectsPageLocators:
     SHARE_CLIENT_CALENDAR_BTN = (By.XPATH, '/html/body/div[4]/div[3]/div/div[2]/div[2]/div[2]/div/div[3]')
     CLIENT_CREATED_SUCCESS_MESSAGE = (By.XPATH, '//div[4]/div[3]')
     CLIENT_LIST = (By.CLASS_NAME, 'clients-modal__row')
+
