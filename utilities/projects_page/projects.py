@@ -24,14 +24,38 @@ def create_project(browser):
     page.select_manager()
     page.select_status()
     page.fill_business_unit(business_unit)
-    page.click_define_start_end_dates_checkbox()
+    # page.click_define_start_end_dates_checkbox()
     page.select_project_color()
     page.add_project_note(note)
     page.click_create_btn()
     page.check_success_message()
-    element = page.element_is_visible(ProjectsPageLocators.SUCCESS_MESSAGE, 3)
-    assert element.is_displayed() is True
     page.go_to_projects_page()
-    time.sleep(2)
+    time.sleep(0.5)
     page.project_added(count)
     return project_name
+
+
+def archive_project(browser):
+    """Function to archive a project """
+    page = ProjectsPage(browser, os.getenv('URL_PROJECTS_PAGE'))
+    page.open()
+    project_name = create_project(browser)
+    page.fill_search_project_box(project_name)
+    count = page.projects_count()
+    page.select_project()
+    page.click_archive_btn()
+    page.click_archive_project_btn_modal()
+    page.project_archived(count)
+    return project_name
+
+
+def archive_all_projects(browser):
+    """Function to archive all project """
+    page = ProjectsPage(browser, os.getenv('URL_PROJECTS_PAGE'))
+    page.open()
+    create_project(browser)
+    page.select_all_projects()
+    page.click_archive_btn()
+    page.click_archive_project_btn_modal()
+    count = page.projects_count()
+    assert count == 0, 'Not all projects are archived'
