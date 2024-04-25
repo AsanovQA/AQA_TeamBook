@@ -261,7 +261,7 @@ def test_delete_client(browser, execute_login):
     client_count = page.clients_count()
     page.click_client_delete_btn()
     page.click_client_confirm_delete_btn()
-    element = page.element_is_visible(ProjectsPageLocators.CLIENT_CREATED_SUCCESS_MESSAGE, 3)
+    element = page.element_is_visible(ProjectsPageLocators.CLIENT_CREATED_SUCCESS_MESSAGE, 1)
     assert element.is_displayed() is True
     time.sleep(0.5)
     page.client_deleted(client_count)

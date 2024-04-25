@@ -16,6 +16,5 @@ def test_login(browser):
     page = LoginPage(browser, os.getenv('URL_LOGIN_PAGE'))
     page.open()
     page.enter_email()
-    time.sleep(10)
     page.enter_password()
     page.click_login_btn()
