@@ -29,8 +29,6 @@ class ProjectsPage(BasePage):
         self.browser.find_element(*ProjectsPageLocators.CLIENT_FIELD).click()
         time.sleep(0.5)
         self.browser.find_element(*ProjectsPageLocators.SELECT_CLIENT).click()
-        # time.sleep(1)
-        # self.browser.find_element(*ProjectsPageLocators.SELECT_CLIENT).click()
 
     def fill_estimated_hours(self, hours):
         self.browser.find_element(*ProjectsPageLocators.ESTIMATED_HOURS).send_keys(hours)
@@ -48,7 +46,7 @@ class ProjectsPage(BasePage):
 
     def click_define_start_end_dates_checkbox(self):
         self.browser.find_element(*ProjectsPageLocators.DEFINE_START_CHECKBOX).click()
-        time.sleep(1)
+        time.sleep(0.5)
         self.browser.find_element(*ProjectsPageLocators.DEFINE_END_CHECKBOX).click()
 
     def click_project_color(self):
@@ -97,11 +95,11 @@ class ProjectsPage(BasePage):
 
     def fill_search_project_box(self, project_name):
         self.browser.find_element(*ProjectsPageLocators.SEARCH_FIELD).send_keys(project_name)
-        time.sleep(1)
+        # time.sleep(0.5)
 
     def clear_search_project_box(self):
         self.browser.find_element(*ProjectsPageLocators.SEARCH_FIELD).clear()
-        time.sleep(1)
+        # time.sleep(0.5)
 
     def select_project(self):
         self.browser.find_element(*ProjectsPageLocators.PROJECT_RECORD_CHECKBOX).click()
@@ -111,7 +109,7 @@ class ProjectsPage(BasePage):
 
     def click_archive_btn(self):
         self.browser.find_element(*ProjectsPageLocators.ARCHIVE_PROJECT_BTN).click()
-        time.sleep(1)
+        time.sleep(0.5)
 
     def check_archive_project_modal(self):
         archive_project_modal = self.browser.find_element(*ProjectsPageLocators.ARCHIVE_PROJECT_MODAL)
@@ -119,7 +117,7 @@ class ProjectsPage(BasePage):
 
     def click_archive_project_btn_modal(self):
         self.browser.find_element(*ProjectsPageLocators.ARCHIVE_PROJECT_BTN_MODAL).click()
-        time.sleep(1)
+        time.sleep(0.5)
 
     def project_archived(self, count):
         projects = len(self.browser.find_elements(*ProjectsPageLocators.PROJECTS_LIST))

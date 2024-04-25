@@ -24,7 +24,7 @@ def create_project(browser):
     page.select_manager()
     page.select_status()
     page.fill_business_unit(business_unit)
-    # page.click_define_start_end_dates_checkbox()
+    # page.click_define_start_end_dates_checkbox() # временно не работает сам чек бокс
     page.select_project_color()
     page.add_project_note(note)
     page.click_create_btn()
