@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 
 
 class RegisterPageLocators:
+    REGISTER_TAB = (By.XPATH, '//*[@id="root"]/div[2]/div/div[2]/div/a')
     REGISTER_FIRST_NAME = (By.ID, "register-first-name")
     REGISTER_LAST_NAME = (By.ID, "register-last-name")
     BUSINESS_EMAIL = (By.ID, "register-email")

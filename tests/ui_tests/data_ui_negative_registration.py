@@ -1,10 +1,13 @@
+import os
+from dotenv import load_dotenv
 from faker import Faker
 
 fake = Faker()
+load_dotenv()
 
 
 class RegisterPageData:
-    REGISTER_PAGE_URL = 'https://web.teambooktest.com/register'
+    REGISTER_PAGE_URL = os.getenv("REG_URL")
     REGISTER_FIRST_NAME_VALID = fake.name()
     REGISTER_FIRST_NAME_INVALID = fake.name(max_nb_chars=21)
     REGISTER_LAST_NAME_VALID = fake.surname()
