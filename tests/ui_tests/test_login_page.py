@@ -1,12 +1,8 @@
 import os
-import time
+
 
 import pytest
-import requests
-from selenium.webdriver.support.wait import WebDriverWait
 
-from logic.locators.login_page import LoginPageLocators
-from logic.locators.projects_page import ProjectsPageLocators
 from logic.pages.login_page import LoginPage
 
 

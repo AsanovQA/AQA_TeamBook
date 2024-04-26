@@ -1,11 +1,8 @@
 import time
 
-
-from logic.core.waiters import WaitElement
+from logic.core.waiters import WaitElement as wait
 from logic.locators.projects_page import ProjectsPageLocators
 from .base_page import BasePage
-
-wait = WaitElement
 
 
 class ProjectsPage(BasePage):

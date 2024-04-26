@@ -3,9 +3,7 @@ import os
 from .base_page import BasePage
 from logic.locators.login_page import LoginPageLocators
 
-from logic.core.waiters import WaitElement
-
-wait = WaitElement
+from logic.core.waiters import WaitElement as wait
 
 
 class LoginPage(BasePage):
