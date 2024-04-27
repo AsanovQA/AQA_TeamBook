@@ -1,3 +1,5 @@
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from .base_page import BasePage
 from ..locators.register_page_locators import RegisterPageLocators
 
@@ -5,13 +7,14 @@ from ..locators.register_page_locators import RegisterPageLocators
 class RegisterPage(BasePage):
 
     def go_to_register_page(self):
-        self.browser.find_element(*RegisterPageLocators.REGISTER_TAB).click()
+        WebDriverWait(self.browser, 10).until(
+            EC.visibility_of_element_located(RegisterPageLocators.REGISTER_TAB)).click()
 
-    def go_to_first_name(self, name):
-        self.browser.find_element(*RegisterPageLocators.REGISTER_FIRST_NAME).send_keys(name)
+    def go_to_first_name(self, first_name):
+        self.browser.find_element(*RegisterPageLocators.REGISTER_FIRST_NAME).send_keys(first_name)
 
-    def go_to_last_name(self, surname):
-        self.browser.find_element(*RegisterPageLocators.REGISTER_LAST_NAME).send_keys(surname)
+    def go_to_last_name(self, last_name):
+        self.browser.find_element(*RegisterPageLocators.REGISTER_LAST_NAME).send_keys(last_name)
 
     def go_to_business_email(self, business_email):
         self.browser.find_element(*RegisterPageLocators.BUSINESS_EMAIL).send_keys(business_email)
