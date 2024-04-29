@@ -24,16 +24,9 @@ class Projects:
                 'user[password]': VALID_PASSWORD
             }
             res = requests.post(self.base_url + 'auth/login', form_data)
-            text = res.text
-            formatted_text = text.replace('"', "").replace('{', "").replace(
-                '}', "").replace(":", "").replace("=>", ': ')
-            data = {i.split(': ')[0]: i.split(': ')[1] for i in formatted_text.split(', ')}
-            token = data['token']
-            # token = res.json()['token']
+            token = dict(eval(res.text)).get('token')
             status = res.status_code
             return token, status
         except requests.exceptions.RequestException as e:
             raise Exception(f"An error occurred while processing this request: {e}")
 
-
-# Projects().get_token()
