@@ -1,5 +1,6 @@
 import json
 import os
+from utilities.regular_functions import reg_token
 from dotenv import load_dotenv
 
 import requests
@@ -24,9 +25,7 @@ class Projects:
                 'user[password]': VALID_PASSWORD
             }
             res = requests.post(self.base_url + 'auth/login', form_data)
-            token = dict(eval(res.text)).get('token')
-            status = res.status_code
-            return token, status
+            return reg_token(res.text), res.status_code
         except requests.exceptions.RequestException as e:
             raise Exception(f"An error occurred while processing this request: {e}")
 
