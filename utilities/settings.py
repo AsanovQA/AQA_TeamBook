@@ -7,7 +7,8 @@ current_datetime = datetime.now()
 
 class ProjectsPageData:
     fake = Faker()
-    PROJECT_NAME = f'Project {fake.first_name()} AQA '
+    PROJECT_NAME = f'Project {fake.first_name()} AQA'
+    NEW_PROJECT_NAME = 'Testr'
     SHORT_PROJECT_NAME = f'PAQA {current_datetime.microsecond}'
     CLIENT_NAME = f'Client {fake.last_name()}'
     CLIENT_EMAIL = f'email{fake.email()}'
@@ -16,3 +17,4 @@ class ProjectsPageData:
     ESTIMATED_MINUTES = '30'
     BUSINESS_UNIT = 'test unit'
     NOTE = 'Test note'
+    TASK_NAME = 'Test task'
