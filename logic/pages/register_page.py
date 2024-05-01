@@ -1,5 +1,7 @@
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+
+from logic.core.waiters import WaitElement as wait
+
 from .base_page import BasePage
 from ..locators.register_page_locators import RegisterPageLocators
 
@@ -7,8 +9,8 @@ from ..locators.register_page_locators import RegisterPageLocators
 class RegisterPage(BasePage):
 
     def go_to_register_page(self):
-        WebDriverWait(self.browser, 10).until(
-            EC.visibility_of_element_located(RegisterPageLocators.REGISTER_TAB)).click()
+        self.browser.find_element(*RegisterPageLocators.REGISTER_TAB).click()
+        wait.wait_until_element_be_visible(self.browser, RegisterPageLocators.CREATE_ORG_BTN)
 
     def go_to_first_name(self, first_name):
         self.browser.find_element(*RegisterPageLocators.REGISTER_FIRST_NAME).send_keys(first_name)
@@ -27,6 +29,12 @@ class RegisterPage(BasePage):
 
     def go_to_create_org_btn(self):
         self.browser.find_element(*RegisterPageLocators.CREATE_ORG_BTN).click()
+        wait.wait_until_element_be_visible(self.browser, RegisterPageLocators.WARNING_MODAL)
+
+    def go_to_create_org_btn2(self):
+        """for negative test with invalid password"""
+        self.browser.find_element(*RegisterPageLocators.CREATE_ORG_BTN).click()
+        wait.wait_until_element_be_visible(self.browser, RegisterPageLocators.WARNING_IMG)
 
     def go_to_skip_btn(self):
         self.browser.find_element(*RegisterPageLocators.REGISTER_SKIP_BTN).click()

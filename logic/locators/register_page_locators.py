@@ -9,6 +9,8 @@ class RegisterPageLocators:
     REGISTER_ORGANIZATION_NAME = (By.ID, "register-company-name")
     REGISTER_PASSWORD = (By.ID, "password-field")
     CREATE_ORG_BTN = (By.ID, "create_org_btn")
+    WARNING_MODAL = (By.XPATH, '//*[@id="root"]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/p[1]')
+    WARNING_IMG = (By.XPATH, '//*[@id="root"]/div[2]/div/div[2]/div/div[1]/div[5]/div[3]/img')
     # REGISTER_PROJECT_NAME = (By.XPATH, "/html/body/div[2]/div[3]/div/div[1]/div/div[1]/div[2]/div[1]/div[1]/input")
     # REGISTER_CLIENT_NAME = (By.XPATH, "/html/body/div[2]/div[3]/div/div[1]/div/div[1]/div[2]/div[1]/div[2]/input")
     # REGISTER_FIRST_USER_NAME = (By.CSS_SELECTOR,

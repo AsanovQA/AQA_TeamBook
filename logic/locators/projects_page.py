@@ -29,7 +29,7 @@ class ProjectsPageLocators:
     TASK_NAME = (By.XPATH, '//div[2]/div[2]/div/div/div/div/input')
     SAVE_TASK_BTN = (By.XPATH, '//div[2]/div[2]/div/div[2]/div/img')
     DELETE_TASK_BTN = (By.XPATH, '//div[2]/div[2]/div/div/div[2]/img')
-    CREATE_BTN = (By.XPATH, '//div[2]/button/p')
+    CREATE_BTN = (By.XPATH, '//div[2]/button/p')  
     SUCCESS_MESSAGE = (By.XPATH, '//body/div/div[2]/div[2]/p')
     SEARCH_FIELD = (By.ID, 'filterProjects')
     SELECT_ALL_PROJECTS = (By.XPATH, '//div[4]/div/div/img')
