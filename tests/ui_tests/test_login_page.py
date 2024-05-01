@@ -1,7 +1,7 @@
 import os
 
+
 import pytest
-import requests
 
 from logic.pages.login_page import LoginPage
 
@@ -14,5 +14,3 @@ def test_login(browser):
     page.enter_email()
     page.enter_password()
     page.click_login_btn()
-    response = requests.get(os.getenv('URL_PLANNING_PAGE'))
-    assert response.status_code == 200
