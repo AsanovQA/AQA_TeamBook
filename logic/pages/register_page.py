@@ -1,5 +1,3 @@
-from selenium.webdriver.support.wait import WebDriverWait
-
 from logic.core.waiters import WaitElement as wait
 
 from .base_page import BasePage
@@ -42,6 +40,7 @@ class RegisterPage(BasePage):
     def go_to_next_btn(self):
         self.browser.find_element(*RegisterPageLocators.REGISTER_NEXT_BTN).click()
 
+    # Для будущих возможных тестов
     # def enter_project_name(self, prj_name):
     #     project_name = self.browser.find_element(*RegisterPageLocators.REGISTER_PROJECT_NAME)
     #     project_name.send_keys(prj_name)
