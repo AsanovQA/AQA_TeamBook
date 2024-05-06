@@ -23,6 +23,3 @@ class Token:
             return self.token
         except requests.exceptions.RequestException as e:
             raise Exception(f"An error occurred while processing this request: {e}")
-
-
-# Token().get_token()
