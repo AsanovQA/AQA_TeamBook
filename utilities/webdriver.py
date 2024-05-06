@@ -11,7 +11,7 @@ class WebDriverClass:
     def __init__(self, driver: webdriver):
         if get_platform() == 'darwin':
             if driver == Driver.CHROME:
-                self.driver = webdriver.Chrome()
+                self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
             elif driver == Driver.FIREFOX:
                 self.driver = webdriver.Firefox()
             elif driver == Driver.EDGE:
