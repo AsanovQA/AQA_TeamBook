@@ -1,8 +1,6 @@
 import os
-
-
+from dotenv import load_dotenv
 import pytest
-
 from logic.pages.login_page import LoginPage
 
 

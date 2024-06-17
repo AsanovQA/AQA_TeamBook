@@ -2,6 +2,7 @@ import os
 
 import pytest
 
+from logic.api_client.api_projects import Projects
 from logic.pages.login_page import LoginPage
 from utilities.webdriver import WebDriverClass
 from utilities.enums import Driver
@@ -25,3 +26,15 @@ def execute_login(browser):
     page.click_login_btn()
     get_url = driver.current_url
     return get_url
+
+
+@pytest.fixture
+def projects():
+    return Projects()   # Add class in fixture
+
+
+@pytest.fixture()
+def get_token():
+    api = Projects()
+    token = api.get_token()
+    return token
