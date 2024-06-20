@@ -1,7 +1,6 @@
 from faker import Faker
 from datetime import datetime
 
-
 current_datetime = datetime.now()
 
 
